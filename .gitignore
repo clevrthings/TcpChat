@@ -1,0 +1,6 @@
+.vscode
+.venv
+.commands
+dist
+build
+.DS_Store
