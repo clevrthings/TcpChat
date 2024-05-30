@@ -28,7 +28,7 @@ connection.send_message("Hello from server")
 ```
 
 ## Overview
-This library provides two classes for TCP communication: `TcpChat` and `TcpChatNoThread`. Each class serves different purposes based on the need for non-blocking or blocking operations.
+This library provides two classes for TCP communication: `TcpChat` and `TcpChatBlocking`. Each class serves different purposes based on the need for non-blocking or blocking operations.
 
 ### TcpChat (Non-blocking using threading)
 The `TcpChat` class is designed for non-blocking TCP communication by leveraging Python's threading capabilities. This class allows for concurrent handling of server and client connections, ensuring that the main application remains responsive and can handle other tasks simultaneously.
@@ -69,8 +69,8 @@ if __name__ == "__main__":
         connection.close_connections()
 ```
 
-### TcpChatNoThread (Blocking without threading)
-The 'TcpChatNoThread' class is designed for blocking TCP communication without using threading. This class is suitable for applications where the user wants to control the main loop and manage threading themselves or where the simplicity of blocking operations is desired.
+### TcpChatBlocking (Blocking without threading)
+The 'TcpChatBlocking' class is designed for blocking TCP communication without using threading. This class is suitable for applications where the user wants to control the main loop and manage threading themselves or where the simplicity of blocking operations is desired.
 
 **Key Features:**
 - **Single-threaded Operation:** Does not use threads, meaning that server and client operations will block the main loop until they complete.
@@ -80,7 +80,7 @@ The 'TcpChatNoThread' class is designed for blocking TCP communication without u
 
 **Usage Example:**
 ```python
-from ct_tcpchat_no_thread import TcpChatNoThread
+from ct_tcpchat_no_thread import TcpChatBlocking
 import logging
 import time
 
@@ -91,7 +91,7 @@ connect_to_ip = "192.168.1.50"
 port = 44785
 log_level = logging.DEBUG
 
-connection = TcpChatNoThread(connect_to_ip=connect_to_ip, callback=callback_function, port=port, log_level=log_level)
+connection = TcpChatBlocking(connect_to_ip=connect_to_ip, callback=callback_function, port=port, log_level=log_level)
 connection.retry_connection_interval = 2
 
 if __name__ == "__main__":
@@ -110,15 +110,15 @@ if __name__ == "__main__":
 #### Key Differences:
 1. **Threading:**
    - `TcpChat` uses threading, making it non-blocking and suitable for applications requiring concurrency.
-   - `TcpChatNoThread` does not use threading, making it blocking and simpler but requiring the user to manage the main loop.
+   - `TcpChatBlocking` does not use threading, making it blocking and simpler but requiring the user to manage the main loop.
    
 2. **Main Loop Management:**
    - `TcpChat` automatically manages its own threads for server and client operations.
-   - `TcpChatNoThread` provides methods to be called in the user's main loop, giving the user more control over the execution flow.
+   - `TcpChatBlocking` provides methods to be called in the user's main loop, giving the user more control over the execution flow.
 
 3. **Use Case Suitability:**
    - `TcpChat` is ideal for applications needing responsiveness and concurrency, such as GUIs or real-time systems.
-   - `TcpChatNoThread` is ideal for simpler applications or where the user prefers to manage threading themselves, such as in command-line tools or basic scripts.
+   - `TcpChatBlocking` is ideal for simpler applications or where the user prefers to manage threading themselves, such as in command-line tools or basic scripts.
 
 ### Extra functions
 ```python
