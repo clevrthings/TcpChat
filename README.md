@@ -73,14 +73,14 @@ if __name__ == "__main__":
 The 'TcpChatBlocking' class is designed for blocking TCP communication without using threading. This class is suitable for applications where the user wants to control the main loop and manage threading themselves or where the simplicity of blocking operations is desired.
 
 **Key Features:**
-- **Single-threaded Operation:** Does not use threads, meaning that server and client operations will block the main loop until they complete.
+- **No Threaded Operation:** Does not use threads, meaning that server and client operations will block the main loop until they complete.
 - **User-managed Loop:** Provides a process_events method that the user can call within their main loop to handle incoming connections and messages.
 - **Callback Mechanism:** Processes incoming messages using a user-defined callback function.
 - **Logging Support:** Includes logging to monitor connection status, message transfers, and errors.
 
 **Usage Example:**
 ```python
-from ct_tcpchat_no_thread import TcpChatBlocking
+from ct_tcpchat import TcpChatBlocking
 import logging
 import time
 
