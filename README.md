@@ -70,7 +70,7 @@ if __name__ == "__main__":
 ```
 
 ### TcpChatBlocking (Blocking without threading)
-The 'TcpChatBlocking' class is designed for blocking TCP communication without using threading. This class is suitable for applications where the user wants to control the main loop and manage threading themselves or where the simplicity of blocking operations is desired.
+The `TcpChatBlocking` class is designed for blocking TCP communication without using threading. This class is suitable for applications where the user wants to control the main loop and manage threading themselves or where the simplicity of blocking operations is desired.
 
 **Key Features:**
 - **No Threaded Operation:** Does not use threads, meaning that server and client operations will block the main loop until they complete.
