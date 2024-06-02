@@ -129,5 +129,9 @@ TcpChat.close_connections() # Closes all the connections
 TcpChat.retry_connection_interval = 2 # Set the retry interval (Default = 5 seconds)
 ```
 
-##### License
-MIT
+# Contributing
+Contributions are welcome! Please open an issue or submit a pull request on GitHub.
+You can also suggest a new sensor by opening an issue. 
+
+# Support my work
+If you like my work you can always [buy me a coffee!](https://buymeacoffee.com/clevrthings)
